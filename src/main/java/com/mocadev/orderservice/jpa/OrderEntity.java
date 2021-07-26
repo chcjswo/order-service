@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import lombok.Data;
 import org.hibernate.annotations.ColumnDefault;
 
@@ -45,8 +47,8 @@ public class OrderEntity implements Serializable {
 	@Column(nullable = false, unique = true)
 	private String orderId;
 
-	@Column(nullable = false, updatable = false)
 	@ColumnDefault(value = "CURRENT_TIMESTAMP")
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdAt;
 
 }
